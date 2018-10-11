@@ -1,0 +1,42 @@
+{
+  "name": "express-app-testing-demo",
+  "description": "a simple express app for demonstrating testing and code coverage",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=6.11.x"
+  },
+  "private": true,
+  "main": "app/server.js",
+  "scripts": {
+    "start": "nodemon app/server.js",
+    "test": "npm run lint && npm run jest",
+    "test:e2e": "jest --runInBand e2e_tests/**/*.test.js",
+    "jest": "jest --coverage app/__tests__/**/*.test.js",
+    "lint": "eslint app/**/*.js e2e_tests/**/*.test.js",
+    "prettier": "prettier --write app/*.js app/__{tests,mocks}__/*.js e2e_tests/*.js"
+  },
+  "dependencies": {
+    "ejs": "~2.5.7",
+    "express": "~4.16.2",
+    "got": "^8.0.1",
+    "serve-favicon": "^2.4.5"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "jest": "^21.2.1",
+    "nodemon": "^1.12.5",
+    "prettier": "^1.9.1",
+    "supertest": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gregjopa/express-app-testing-demo"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true
+  },
+  "prettier": {
+    "singleQuote": true
+  }
+}
